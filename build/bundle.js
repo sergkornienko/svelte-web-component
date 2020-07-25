@@ -400,5 +400,16 @@
 
     customElements.define("serhiiko-svelte", App);
 
+    // const app = new App({
+    // 	target: document.body,
+    // 	props: {
+    // 		name: 'serhiiko'
+    // 	}
+    // });
+
+    // export default app;
+
+    console.log('test');
+
 }());
 //# sourceMappingURL=bundle.js.map
