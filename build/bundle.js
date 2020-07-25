@@ -40,6 +40,13 @@
     function text(data) {
         return document.createTextNode(data);
     }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -270,6 +277,19 @@
         dispatch_dev("SvelteDOMRemove", { node });
         detach(node);
     }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ["capture"] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev("SvelteDOMAddEventListener", { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev("SvelteDOMRemoveEventListener", { node, event, handler, modifiers });
+            dispose();
+        };
+    }
     function set_data_dev(text, data) {
         data = '' + data;
         if (text.wholeText === data)
@@ -290,40 +310,50 @@
     const file = "src/App.svelte";
 
     function create_fragment(ctx) {
-    	let main;
-    	let h1;
+    	let button;
     	let t0;
     	let t1;
     	let t2;
+    	let t3_value = (/*count*/ ctx[0] === 1 ? "time" : "times") + "";
+    	let t3;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h1 = element("h1");
-    			t0 = text("Hello ");
-    			t1 = text(/*name*/ ctx[0]);
-    			t2 = text("!");
+    			button = element("button");
+    			t0 = text("Clicked ");
+    			t1 = text(/*count*/ ctx[0]);
+    			t2 = space();
+    			t3 = text(t3_value);
     			this.c = noop;
-    			add_location(h1, file, 6, 1, 100);
-    			add_location(main, file, 5, 0, 92);
+    			add_location(button, file, 9, 0, 121);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, main, anchor);
-    			append_dev(main, h1);
-    			append_dev(h1, t0);
-    			append_dev(h1, t1);
-    			append_dev(h1, t2);
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    			append_dev(button, t2);
+    			append_dev(button, t3);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleClick*/ ctx[1], false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*name*/ 1) set_data_dev(t1, /*name*/ ctx[0]);
+    			if (dirty & /*count*/ 1) set_data_dev(t1, /*count*/ ctx[0]);
+    			if (dirty & /*count*/ 1 && t3_value !== (t3_value = (/*count*/ ctx[0] === 1 ? "time" : "times") + "")) set_data_dev(t3, t3_value);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(main);
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -339,8 +369,13 @@
     }
 
     function instance($$self, $$props, $$invalidate) {
-    	let { name = "serhiiko" } = $$props;
-    	const writable_props = ["name"];
+    	let count = 0;
+
+    	function handleClick() {
+    		$$invalidate(0, count += 1);
+    	}
+
+    	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<serhiiko-svelte> was created with unknown prop '${key}'`);
@@ -348,53 +383,29 @@
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("serhiiko-svelte", $$slots, []);
-
-    	$$self.$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    	};
-
-    	$$self.$capture_state = () => ({ name });
+    	$$self.$capture_state = () => ({ count, handleClick });
 
     	$$self.$inject_state = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
+    		if ("count" in $$props) $$invalidate(0, count = $$props.count);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [name];
+    	return [count, handleClick];
     }
 
     class App extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>main{text-align:center;padding:1em;max-width:240px;margin:0 auto}h1{color:#ff3e00;text-transform:uppercase;font-size:4em;font-weight:100}@media(min-width: 640px){main{max-width:none}}</style>`;
-    		init(this, { target: this.shadowRoot }, instance, create_fragment, safe_not_equal, { name: 0 });
+    		init(this, { target: this.shadowRoot }, instance, create_fragment, safe_not_equal, {});
 
     		if (options) {
     			if (options.target) {
     				insert_dev(options.target, this, options.anchor);
     			}
-
-    			if (options.props) {
-    				this.$set(options.props);
-    				flush();
-    			}
     		}
-    	}
-
-    	static get observedAttributes() {
-    		return ["name"];
-    	}
-
-    	get name() {
-    		return this.$$.ctx[0];
-    	}
-
-    	set name(name) {
-    		this.$set({ name });
-    		flush();
     	}
     }
 
