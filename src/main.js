@@ -1,10 +1,14 @@
 import App from './App.svelte';
 
-// const app = new App({
-// 	target: document.body,
-// 	props: {
-// 		name: 'serhiiko'
-// 	}
-// });
+class Test extends HTMLElement {
+  connectedCallback() {
+    new App({
+			target: this,
+				props: {
+					name: 'serhiiko new'
+				}
+    });
+  }
+}
 
-// export default app;
+window.customElements.define('serhiiko-svelte', Test);

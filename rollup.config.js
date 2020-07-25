@@ -44,7 +44,7 @@ export default {
 			css: css => {
 				css.write('public/build/bundle.css');
 			},
-			customElement: true,
+			// customElement: true,
 		}),
 
 		// If you have external dependencies installed from
