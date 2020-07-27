@@ -1,6 +1,11 @@
 <script>
-	import { count } from '../store.js';
+	import { conversations } from '../store.js';
 	export let answer;
 </script>
 
-<p>The answer is {answer}:{$count}</p>
+<span>{answer}</span>
+<ul>
+	{#each $conversations as conv}
+		<li>{conv.userName}</li>
+	{/each}
+</ul>
