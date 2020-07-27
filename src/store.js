@@ -1,8 +1,22 @@
-import { readable, get } from 'svelte/store'
-export const count = readable(0, set => {
-  window.onmessage = (e) => {
-    if (e.data && e.data.num) {
-      set(get(count) + e.data.num);
-    }
-  };
-});
+import { readable, get } from 'svelte/store';
+import { messagesReducer, conversationsReducer } from './reducers';
+
+const handleOnmessage = (set, reducer, store) => {
+	return (e) => {
+		const state = reducer(e, get(store));
+		if (state) set(state);
+	};
+};
+
+const initialMessages = {
+	avatar: '',
+	list: [],
+};
+
+const messages = readable(initialMessages, set => window.addEventListener('message', handleOnmessage(set, messagesReducer, messages)));
+const conversations = readable([], set => window.addEventListener('message', handleOnmessage(set, conversationsReducer, conversations)));
+
+export {
+	messages,
+	conversations,
+};
