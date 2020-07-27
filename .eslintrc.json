@@ -5,7 +5,14 @@
       "jest/globals": true
     },
     "plugins": [
-      "jest"
+      "jest",
+      "svelte3"
+    ],
+    "overrides": [
+      {
+        "files": ["*.svelte"],
+        "processor": "svelte3/svelte3"
+      }
     ],
     "extends": "eslint:recommended",
     "globals": {
@@ -13,7 +20,7 @@
       "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-      "ecmaVersion": 2018,
+      "ecmaVersion": 2019,
       "sourceType": "module"
     },
     "rules": {
@@ -56,7 +63,8 @@
           "named": "never",
           "asyncArrow": "always"
         }
-      ]
+      ],
+      "eol-last": ["error", "always"]
     }
   }
   
