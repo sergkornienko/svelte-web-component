@@ -37,27 +37,36 @@ const FALLBACK_MSGS = [
 	},
 ];
 
+const sendMessage = (avatar, list) =>
+	window.postMessage({
+		messageType: 'CHATBOT-CONV',
+		type: ':SHOW_MESSAGE',
+		avatar: avatar || 'https://static.parastorage.com/unpkg/@wix/marketing-header-and-footer@1.0.2282/dist/statics/assets/default-profile-image.svg',
+		list: list || FALLBACK_MSGS,
+	}, '*');
+
+const sendConversations = (type, list) =>
+	window.postMessage({
+		messageType: 'CHATBOT-CONV',
+		type,
+		list: list || FALLBACK_CONV,
+	}, '*');
+
 window.input = {
 	message: (avatar, list) => {
-		window.postMessage({
-			messageType: 'CHATBOT-CONV',
-			type: ':SHOW_MESSAGE',
-			avatar: avatar || 'https://static.parastorage.com/unpkg/@wix/marketing-header-and-footer@1.0.2282/dist/statics/assets/default-profile-image.svg',
-			list: list || FALLBACK_MSGS,
-		}, '*');
+		sendMessage(avatar, list);
 	},
 	addConversations: (list) => {
-		window.postMessage({
-			messageType: 'CHATBOT-CONV',
-			type: ':ADD_CONVERSATIONS',
-			list: list || FALLBACK_CONV,
-		}, '*');
+		sendConversations(':ADD_CONVERSATIONS', list);
 	},
 	loadConversations: (list) => {
-		window.postMessage({
-			messageType: 'CHATBOT-CONV',
-			type: ':LOAD_CONVERSATIONS',
-			list: list || FALLBACK_CONV,
-		}, '*');
+		sendConversations(':LOAD_CONVERSATIONS', list);
 	},
 };
+
+document.addEventListener(':GET_MESSAGE', sendMessage);
+
+const webcomponent = document.querySelector('serhiiko-svelte');
+webcomponent.addEventListener(':GET_CONVERSATIONS', ({ detail }) => {
+	if (detail) sendConversations(detail.responseType);
+});

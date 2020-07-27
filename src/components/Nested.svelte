@@ -5,7 +5,7 @@
 
 	const { dispatchEvent } = getContext('event-emitter');
 	const handleClick = () => {
-		dispatchEvent('meh', { test: 'work' });
+		dispatchEvent(':GET_CONVERSATIONS', { test: 'work', responseType: ':ADD_CONVERSATIONS' });
 	};
 </script>
 
