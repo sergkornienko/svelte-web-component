@@ -1,16 +1,15 @@
 <script>
 	import { messages } from '../store.js';
 	import Nested from './Nested.svelte';
+	import { initEventEmmiter } from '../event-emitter.js';
 
 	export let name = 'serhiiko';
 	export let dispatchEvent;
 
-	const handleClick = () => {
-		dispatchEvent(new CustomEvent('meh', { detail: {type: 'blet'} }));
-	};
+	initEventEmmiter(dispatchEvent);
 </script>
 
-<p on:click={handleClick}>
+<p>
 	{name}
 </p>
 <ul>
