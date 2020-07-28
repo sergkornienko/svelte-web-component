@@ -1,2 +1,9 @@
 
 /*# sourceMappingURL=bundle.css.map */
+@media print {
+  print-page {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+  }
+}
