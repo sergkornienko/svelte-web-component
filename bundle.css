@@ -1,13 +1,14 @@
 
 /*# sourceMappingURL=bundle.css.map */
 print-page {
-  visibility: hidden;
+  display: none;
 }
 @media print {
   body {
     visibility: hidden;
   }
   print-page {
+    display: block;
     visibility: visible;
     position: fixed;
     top: 0;
