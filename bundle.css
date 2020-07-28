@@ -1,10 +1,13 @@
 
 /*# sourceMappingURL=bundle.css.map */
+print-page {
+  visibility: hidden;
+}
 @media print {
+  body {
+    visibility: hidden;
+  }
   print-page {
-    display: block;
-    height: 100px;
-    width: 100px;
-    background-color: #000;
+    visibility: visible;
   }
 }
