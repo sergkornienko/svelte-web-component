@@ -1,4 +1,4 @@
-const MESSAGE_TYPE = 'CHATBOT-CONV'; // used to understand that this event belong to CHATBOT-CONV
+const CONNECTION_ID = 'CHATBOT-CONV'; // used to understand that this event belong to CHATBOT-CONV
 const INPUT = {
 	MESSAGE: ':SHOW_MESSAGE',
 	ADD_CONVERSATIONS: ':ADD_CONVERSATIONS', // add conversations to the bottom of showed now
@@ -9,10 +9,17 @@ const OUTPUT = {
 	GET_CONVERSATIONS: ':GET_CONVERSATIONS',
 	TOGGLE_FAVORITE: ':TOGGLE_FAVORITE',
 	TOGGLE_READED: ':TOGGLE_READED',
+	REFRESH: ':REFRESH',
+};
+
+const MESSAGE_TYPE = {
+	BOT: 'bot',
+	USER: 'user',
 };
 
 export {
-	MESSAGE_TYPE,
+	CONNECTION_ID,
 	INPUT,
 	OUTPUT,
+	MESSAGE_TYPE,
 };

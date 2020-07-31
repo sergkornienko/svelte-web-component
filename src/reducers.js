@@ -1,6 +1,6 @@
-import { MESSAGE_TYPE, INPUT } from './types';
+import { CONNECTION_ID, INPUT } from './types';
 
-export const isChatConvEvent = ({ data }) => data && data.messageType === MESSAGE_TYPE;
+export const isChatConvEvent = ({ data }) => data && data.messageType === CONNECTION_ID;
 
 const conversationsReducer = (e, previousState) => {
 	if (!isChatConvEvent(e)) return null;
@@ -19,6 +19,7 @@ const messagesReducer = (e) => {
 	return isMsgEvent ? {
 		avatar: e.data.avatar,
 		list: e.data.list,
+		botId: e.data.botId,
 	} : null;
 };
 
