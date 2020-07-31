@@ -20,6 +20,8 @@
 		--base-color: ;
 		--user-msg-color: #162d3d;
 		--text-color: #20455e;
+		--event-color: #7A92A5;
+		--link-color: #3D9BE9;
   	--mobile-width: '650px';
 		--background-color-message-list: #f0f4f7;
 		--background-color-site: #dfe5eb;

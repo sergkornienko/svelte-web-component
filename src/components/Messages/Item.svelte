@@ -1,6 +1,7 @@
 <script>
   import BotMessage from './BotMessage.svelte';
   import UserMessage from './UserMessage.svelte';
+  import Event from './Event.svelte';
   import { MESSAGE_TYPE } from '../../types.js'
 
   export let msg = {};
@@ -13,12 +14,12 @@
   {:else if msg.type === MESSAGE_TYPE.USER}
       <UserMessage {...msg} />
   {:else}
-    action
+    <Event {...msg} />
   {/if}
 </div>
 
 <style>
-  .item{
+  .item {
     margin-bottom: 16px;
   }
 </style>
