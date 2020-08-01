@@ -1,10 +1,9 @@
 <script>
   import { USER_AVATAR } from '../../constants.js';
-  export let userAvatar = '';
+  export let userAvatar;
 </script>
 
 <img class="avatar user-avatar" src={userAvatar || USER_AVATAR} alt="User avatar">
-
 
 <style>
   .user-avatar {
