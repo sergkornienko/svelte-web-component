@@ -2,9 +2,8 @@
   import { EMPTY_STAR, FILL_STAR } from '../../constants.js';
   import link from '../../assets/link.svg';
   import ticketSvg from '../../assets/ticket.svg';
-  import { getContext } from 'svelte';
+  import { dispatchToggleFavorite } from '../../event-emitter.js';
 
-  const { dispatchEvent } = getContext('event-emitter');
   export let id;
   export let favorite = false;
   export let ticket = false;
@@ -14,7 +13,7 @@
   const handleDeepLinkClick = () => navigator.clipboard.writeText(`${window.location.href}?conversationId=${id}`);
   const handleFavoriteClick = () => {
     favorite = !favorite;
-    dispatchEvent(':TOGGLE_FAVORITE', { _id: id });
+    dispatchToggleFavorite(id);
   };
 </script>
 
