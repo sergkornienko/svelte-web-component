@@ -33,3 +33,5 @@ export const dateToString = (date) => {
 
 export const formatConvDetails = (conv) =>
 	`${conv.countMessages} messages (${conv.duration ? msToTime(conv.duration) : durationOld(conv._createdDate, conv._updatedDate)} min)`;
+
+export const isScrolledToBootom = (item) => item.scrollTop === (item.scrollHeight - item.offsetHeight);
