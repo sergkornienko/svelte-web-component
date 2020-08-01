@@ -22,6 +22,7 @@
 		--text-color: #20455e;
 		--event-color: #7A92A5;
 		--link-color: #3D9BE9;
+		--hover-color: #EAF7FF;
   	--mobile-width: '650px';
 		--background-color-message-list: #f0f4f7;
 		--background-color-site: #dfe5eb;

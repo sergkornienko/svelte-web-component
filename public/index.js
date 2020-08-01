@@ -1,11 +1,13 @@
 const FALLBACK_CONV = [
 	{
+		'_id': '0',
 		'duration': 25407,
 		'countMessages': 7,
 		'finalMessage': 'Check out this article to learn how to change to a different Premium Plan:',
 		'locale': 'en',
 	},
 	{
+		'_id': '1',
 		'duration': 54329,
 		'countMessages': 10,
 		'finalMessage': 'Add product options (sizes, colors, etc.)',
@@ -15,6 +17,7 @@ const FALLBACK_CONV = [
 		'userName': 'yellowamour1',
 	},
 	{
+		'_id': '2',
 		'duration': 56956,
 		'countMessages': 22,
 		'finalMessage': 'Happy to hear it! Do you have any suggestions for how we can improve?',
@@ -230,3 +233,4 @@ webcomponent.addEventListener(':GET_CONVERSATIONS', ({ detail }) => {
 });
 
 sendMessage();
+sendConversations(':ADD_CONVERSATIONS');
