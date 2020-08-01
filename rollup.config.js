@@ -3,12 +3,13 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import svg from 'rollup-plugin-svg-import';
 
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
 	let server;
-	
+
 	function toExit() {
 		if (server) server.kill(0);
 	}
@@ -18,12 +19,12 @@ function serve() {
 			if (server) return;
 			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
+				shell: true,
 			});
 
 			process.on('SIGTERM', toExit);
 			process.on('exit', toExit);
-		}
+		},
 	};
 }
 
@@ -33,9 +34,13 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/bundle.js',
 	},
 	plugins: [
+		svg({
+			// process SVG to DOM Node or String. Default: false
+			stringify: true,
+		}),
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
@@ -54,7 +59,7 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ['svelte'],
 		}),
 		commonjs(),
 
@@ -68,9 +73,9 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
 	],
 	watch: {
-		clearScreen: false
-	}
+		clearScreen: false,
+	},
 };
