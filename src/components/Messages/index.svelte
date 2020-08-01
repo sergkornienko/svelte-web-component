@@ -1,13 +1,12 @@
 <script>
   import { messages } from '../../store.js';
-  import { MESSAGE_TYPE } from '../../types.js'
   import Item from './Item.svelte';
   import BotAvatar from './BotAvatar.svelte';
   import UserAvatar from './UserAvatar.svelte';
+  import { isUser, isBot } from '../../util.js';
 
-  const showBotAvatar = (list, i) => list[i].type === MESSAGE_TYPE.BOT
-    && ((i + 1 < list.length && list[i + 1].type === MESSAGE_TYPE.USER) || list.length === 1 || i === list.length - 1);
-  const isUser = (t) => t === MESSAGE_TYPE.USER;
+  const showBotAvatar = (list, i) => isBot(list[i].type)
+    && ((i + 1 < list.length && isUser(list[i + 1].type)) || list.length === 1 || i === list.length - 1);
 </script>
 
 <div class="msg-list">
