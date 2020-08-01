@@ -3,21 +3,28 @@
   export let conv = {};
 </script>
 
+<div class="info">
 <div class="main-info">
   <span class="username">{conv.userName}</span>
-  <p class="final-message">{conv.finalMessage}</p>
+  <span class="date">{dateToString(conv._createdDate)}</span>
 </div>
 <div class="additiona-info">
-  <span class="date">{dateToString(conv._createdDate)}</span>
+  <p class="final-message">{conv.finalMessage}</p>
   <p class="messages-info">{formatConvDetails(conv)}</p>
+</div>
 </div>
 
 <style>
-  .main-info {
-    width: 50%;
+  .info {
+    width: 70%;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
   }
   .main-info, .additiona-info {
-    margin-left: 12px;
+    display: flex;
+    justify-content: space-between;
     font-size: 12px;
   }
   .username {
@@ -31,9 +38,11 @@
     display: -webkit-box;
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
   }
-  .additiona-info {
+  .messages-info, .date {
+    min-width: 130px;
     text-align: right;
+    margin-left: 12px;
   }
 </style>
