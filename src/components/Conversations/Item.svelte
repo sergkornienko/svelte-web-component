@@ -1,13 +1,18 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, getContext } from 'svelte';
   import Avatar from './Avatar.svelte';
   import Info from './Info.svelte';
   import Icons from './Icons.svelte';
+
 	const dispatch = createEventDispatcher();
+  const { dispatchEvent } = getContext('event-emitter');
   export let conv = {};
   export let active = false;
 
   const handleClick = () => {
+    if (!conv.isReaded) {
+      dispatchEvent(':TOGGLE_READED', { _id: conv._id });
+    }
     conv.isReaded = true;
     dispatch('click', { _id: conv._id });
   };
