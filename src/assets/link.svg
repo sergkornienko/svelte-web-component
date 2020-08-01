@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="xMidYMid meet" id="comp-k11tjmac__7PlBI8F1H1njrtv8E2GBsvgcontent" data-bbox="-3 -4 22 22" viewBox="-3 -4 22 22" height="24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img">
+    <g>
+        <defs>
+            <path d="M7.703 17.368c-.821.822-2.252.821-3.073 0a2.176 2.176 0 0 1 0-3.073l3.687-3.687a2.175 2.175 0 0 1 3.074 0l.703-.704a3.173 3.173 0 0 0-4.481 0l-3.686 3.687a3.171 3.171 0 0 0 0 4.481 3.147 3.147 0 0 0 2.24.928c.846 0 1.642-.33 2.24-.928l2.223-2.223-.704-.703-2.223 2.222zM18 7.166c0-.846-.329-1.642-.928-2.24a3.173 3.173 0 0 0-4.481 0L10.369 7.15l.703.704 2.223-2.223a2.176 2.176 0 0 1 3.074 0c.41.411.636.956.636 1.536a2.16 2.16 0 0 1-.636 1.537l-3.687 3.688a2.177 2.177 0 0 1-3.074 0l-.704.703a3.163 3.163 0 0 0 2.241.927 3.16 3.16 0 0 0 2.24-.927l3.687-3.687A3.146 3.146 0 0 0 18 7.167z" id="dd461069-c027-433f-aec5-d45da1d7d15e"></path>
+        </defs>
+        <g transform="translate(-3 -4)" fill-rule="evenodd">
+            <mask fill="#ffffff" id="47f47b80-b166-41ed-81cd-5dc504d0f44f">
+                <use xlink:href="#dd461069-c027-433f-aec5-d45da1d7d15e"></use>
+            </mask>
+            <use xlink:href="#dd461069-c027-433f-aec5-d45da1d7d15e" fill-rule="nonzero" fill="#162D3D" data-color="2"></use>
+            <g mask="url(#47f47b80-b166-41ed-81cd-5dc504d0f44f)">
+                <path fill="#3899EC" d="M22 0v22H0V0h22z" data-color="1"></path>
+            </g>
+        </g>
+    </g>
+</svg>
