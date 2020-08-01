@@ -1,4 +1,4 @@
-import { CONNECTION_ID, INPUT } from './types';
+import { CONNECTION_ID, INPUT } from './constants';
 
 export const isChatConvEvent = ({ data }) => data && data.messageType === CONNECTION_ID;
 
