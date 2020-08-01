@@ -1,5 +1,6 @@
 <script>
 	import { conversations } from '../../store.js';
+  import { isActiveConv } from '../../util.js';
   import Item from './Item.svelte';
   let active = false;
   
@@ -8,7 +9,11 @@
 
 <div class="conv-list">
   {#each $conversations as conv, i}
-    <Item {...conv} active={active === conv._id || (!active && i === 0)} on:click={handleClick} />
+    <Item 
+      {conv} 
+      active={isActiveConv(active, conv, i)} 
+      on:click={handleClick} 
+    />
   {/each}
 </div>
 
