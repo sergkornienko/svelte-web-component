@@ -1,5 +1,5 @@
 <script>
-	import { conversations } from '../../store.js';
+	import { conversations, isLoading } from '../../store.js';
   import { isActiveConv, isScrolledToBootom } from '../../util.js';
   import Item from './Item.svelte';
   import Loader from '../Loader.svelte';
@@ -7,14 +7,15 @@
 
   let active;
   let convList;
-  let isLoading = true;
+  let loadMore = true;
 
-  conversations.subscribe(() => isLoading = false);
+  conversations.subscribe(() => loadMore = false);
   
   const handleClick = ({ detail }) => active = detail._id;
   const handleScroll = () => {
-    if(!isLoading && isScrolledToBootom(convList)) {
-      isLoading = true;
+    if(!$isLoading && isScrolledToBootom(convList)) {
+      loadMore = true;
+      isLoading.set(true);
 		  dispatchLoadConversations();
     }
   };
@@ -25,14 +26,16 @@
   bind:this={convList}
   on:scroll={handleScroll}
 >
-  {#each $conversations as conv, i}
-    <Item 
-      {conv} 
-      active={isActiveConv(active, conv, i)} 
-      on:click={handleClick} 
-    />
-  {/each}
-  {#if isLoading}
+  {#if !$isLoading || loadMore}
+    {#each $conversations as conv, i}
+      <Item 
+        {conv} 
+        active={isActiveConv(active, conv, i)} 
+        on:click={handleClick} 
+      />
+    {/each}
+  {/if}
+  {#if loadMore || $isLoading}
     <Loader centred width="56px" />
   {/if}
 </div>

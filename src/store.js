@@ -1,4 +1,4 @@
-import { readable, get } from 'svelte/store';
+import { readable, get, writable } from 'svelte/store';
 import { messagesReducer, conversationsReducer } from './reducers';
 
 const handleOnmessage = (set, reducer, store) => {
@@ -13,10 +13,7 @@ const initialMessages = {
 	list: [],
 };
 
-const messages = readable(initialMessages, set => window.addEventListener('message', handleOnmessage(set, messagesReducer, messages)));
-const conversations = readable([], set => window.addEventListener('message', handleOnmessage(set, conversationsReducer, conversations)));
+export const messages = readable(initialMessages, set => window.addEventListener('message', handleOnmessage(set, messagesReducer, messages)));
+export const conversations = readable([], set => window.addEventListener('message', handleOnmessage(set, conversationsReducer, conversations)));
 
-export {
-	messages,
-	conversations,
-};
+export const isLoading = writable(false);
