@@ -3,9 +3,12 @@
 
   export let placeholder;
   export let search = false;
+  export let stretch = false;
 </script>
 
-<div class="input">
+<div class="input"
+  class:stretch
+>
   {#if search}
     <div class="search-icon">
       {@html searchIcon}
@@ -15,6 +18,7 @@
     type="text"
     class="input-element"
     class:search
+    class:stretch
     {placeholder}
     on:input
   >
@@ -31,6 +35,9 @@
     display: inline-block;
     position: relative;
     width: fit-content;
+  }
+  .stretch {
+    width: 100%;
   }
   .search-icon {
     position: absolute;
