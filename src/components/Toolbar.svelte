@@ -1,11 +1,21 @@
 <script>
-  import { getContext } from 'svelte';
-	const { dispatchEvent } = getContext('event-emitter');
-  const handleClick = () => {
-		dispatchEvent(':GET_CONVERSATIONS', { test: 'work', responseType: ':ADD_CONVERSATIONS' });
-	};
+ import Input from './Input.svelte';
+ import debounce from 'lodash/debounce';
+
+  const handleSearchInput = debounce((e) => console.log(e.target.value), 500);
 </script>
   
 <div class="toolbar">
-  Toolbar
+  <Input 
+    search
+    placeholder="Search Conversations"
+    on:input={handleSearchInput}
+  />
 </div>
+
+<style>
+  .toolbar {
+    background-color: #fff;
+    padding: 14px;
+  }
+</style>

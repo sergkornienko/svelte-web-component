@@ -26,6 +26,7 @@
   	--mobile-width: '650px';
 		--background-color-message-list: #f0f4f7;
 		--background-color-site: #dfe5eb;
+		--input-border-color: #c1e4fe;
 	}
 	:global(.bubble) {
 		border-radius: 10px;
