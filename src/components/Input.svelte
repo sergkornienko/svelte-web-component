@@ -4,6 +4,7 @@
   export let placeholder;
   export let search = false;
   export let stretch = false;
+  export let disabled = false;
 </script>
 
 <div class="input"
@@ -19,6 +20,7 @@
     class="input-element"
     class:search
     class:stretch
+    {disabled}
     {placeholder}
     on:input
   >

@@ -4,6 +4,7 @@
   import Dropdown from './Dropdown.svelte';
   import debounce from 'lodash/debounce';
   import { FILTERS, SORTS, LANGUAGES } from '../constants.js';
+	import { isLoading } from '../store.js';
   
   let filter;
   let sort;
@@ -18,7 +19,7 @@
   <Input 
     stretch
     search
-    disable
+    disabled={$isLoading}
     placeholder="Search Conversations"
     on:input={handleSearchInput}
   />
@@ -44,13 +45,13 @@
       primary
       label="Filter"
       on:click={handleFilterClick}
-      disabled={false}
+      disabled={$isLoading}
     />
     <Button
       primary
       label="Refresh"
       on:click={handleRefreshClick}
-      disabled={false}
+      disabled={$isLoading}
     />
   </div>
 </div>
