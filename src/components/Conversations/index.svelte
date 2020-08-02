@@ -15,7 +15,6 @@
   const handleScroll = () => {
     if(!$isLoading && isScrolledToBootom(convList)) {
       loadMore = true;
-      isLoading.set(true);
 		  dispatchLoadConversations();
     }
   };

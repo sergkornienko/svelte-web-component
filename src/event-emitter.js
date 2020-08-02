@@ -1,5 +1,6 @@
 import { setContext, getContext } from 'svelte';
 import { INPUT, OUTPUT} from './constants.js';
+import { isLoading } from './store.js';
 
 export const initEventEmmiter = (dispatchEvent) => {
 	setContext('event-emitter', {
@@ -9,6 +10,7 @@ export const initEventEmmiter = (dispatchEvent) => {
 
 export const dispatchLoadConversations = () => {
 	const { dispatchEvent } = getContext('event-emitter');
+	isLoading.set(true);
 	dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
 		responseType: INPUT.ADD_CONVERSATIONS,
 		// TODO: add data of filters state
