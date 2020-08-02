@@ -26,7 +26,7 @@
     border-style: solid;
     border-color: var(--input-border-color);
     color: var(--user-msg-color);
-    padding: 6px 12px;
+    padding: 8px 12px;
   }
   input:focus {
     box-shadow: 0 0 0 0.5pt var(--link-color);
@@ -36,11 +36,13 @@
     padding-left: 30px; 
   }
   .input {
+    display: inline-block;
     position: relative;
+    width: fit-content;
   }
   .search-icon {
     position: absolute;
-    top: 6px;
+    top: 8px;
     left: 9px;
   }
 </style>
