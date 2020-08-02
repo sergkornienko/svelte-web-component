@@ -13,6 +13,7 @@
   {/if}
   <input
     type="text"
+    class="input-element"
     class:search
     {placeholder}
     on:input
@@ -21,16 +22,7 @@
 
 <style>
   input {
-    border-width: 1px;
     border-radius: 999px;
-    border-style: solid;
-    border-color: var(--input-border-color);
-    color: var(--user-msg-color);
-    padding: 8px 12px;
-  }
-  input:focus {
-    box-shadow: 0 0 0 0.5pt var(--link-color);
-    outline: none;
   }
   .search {
     padding-left: 30px; 

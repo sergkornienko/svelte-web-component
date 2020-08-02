@@ -45,6 +45,19 @@
 		height: 24px;
 		border-radius: 20px;
 	}
+	:global(.input-element) {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--input-border-color);
+    color: var(--user-msg-color);
+    padding: 8px 12px;
+		width: 300px;
+	}
+
+	:global(.input-element:focus) {
+    box-shadow: 0 0 0 0.5pt var(--link-color);
+    outline: none;
+  }
 	main {
 		position: absolute;
 		top: 0;
