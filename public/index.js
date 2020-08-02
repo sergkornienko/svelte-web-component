@@ -1,30 +1,168 @@
 const FALLBACK_CONV = [
 	{
-		'_id': '0',
-		'duration': 25407,
-		'countMessages': 7,
-		'finalMessage': 'Check out this article to learn how to change to a different Premium Plan:',
+		'duration': 8702,
+		'countMessages': 3,
+		'finalMessage': 'Domains, got it. Choose a specific topic or describe the issue below.',
+		'_id': '7PlBI8F1H1njrtv8E2GB',
+		'_createdDate': {
+			'$date': '2020-08-01T09:24:25.820Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
 		'locale': 'en',
+		'userAvatar': 'https://gravatar.com/avatar/40f40b49f20fbc010773ed5a125fdcd4?d=blank',
+		'userName': 'lanievelyn',
 	},
 	{
-		'_id': '1',
-		'duration': 54329,
-		'countMessages': 10,
-		'finalMessage': 'Add product options (sizes, colors, etc.)',
+		'duration': 84380,
+		'countMessages': 11,
+		'finalMessage': 'Did that solve the problem?',
+		'_id': 'Q7GLjyx5OMz3fN3Drgo2',
+		'_createdDate': {
+			'$date': '2020-08-01T09:23:27.627Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
+		'locale': 'en',
+		'userAvatar': 'https://gravatar.com/avatar/3d96857d90a36e349e9cf5f4b768616c?d=blank',
+		'userName': 'alinastoianov',
+		isReaded: true,
+	},
+	{
+		'duration': 137153,
+		'countMessages': 25,
+		'finalMessage': 'Hi! 👋 Let’s connect you to the right Customer Care Expert. Start by choosing a topic or explaining your issue below.',
+		'_id': 'JbOPo3idAWgi8Kj0LGx4',
+		'_createdDate': {
+			'$date': '2020-08-01T09:22:45.974Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
 		'locale': 'en',
 		'formFactor': 'Mobile',
-		'userAvatar': 'https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/PersonalUploads/a8f4d2975a5e4e4183bfcd5bc49d46be.PNG',
-		'userName': 'yellowamour1',
+		'userAvatar': 'https://lh5.googleusercontent.com/-mfVMTjqo0T8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3re5LUEQSHuuEuBwaQM9qnaymu8Tzw/s96-c/photo.jpg',
+		'userName': 'choiroutoftheshadows',
 	},
 	{
-		'_id': '2',
-		'duration': 56956,
+		'duration': 76643,
 		'countMessages': 22,
-		'finalMessage': 'Happy to hear it! Do you have any suggestions for how we can improve?',
+		'finalMessage': 'Before you go, was this chat helpful?',
+		'_id': '1pSCZlC4MsmbG0UgsKrG',
+		'_createdDate': {
+			'$date': '2020-08-01T09:22:33.964Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
 		'locale': 'en',
-		'withTicket': 'https://support.wix.com/en/ticket/e1404fb1-559b-4526-ad6e-e1844fbebd36',
-		'userAvatar': 'https://images-wixmp-7ef3383b5fd80a9f5a5cc686.wixmp.com/PersonalUploads/afe194388c2b45a8b088a78f77bc8772.PNG',
-		'userName': 'magicesoaps',
+		'withTicket': 'https://support.wix.com/en/ticket/1793c0c3-6bc7-4d42-aac0-2fd0cf11d697',
+		'userAvatar': 'https://gravatar.com/avatar/6c07dc10f33750fa8611a2f1a135767d?d=blank',
+		'userName': 'andrew-st-antoine',
+	},
+	{
+		'duration': 77917,
+		'countMessages': 16,
+		'finalMessage': 'To get connected, please type the domain name you want to connect to your site.',
+		'_id': 'KMiykTgtGNozXIXiI0UA',
+		'_createdDate': {
+			'$date': '2020-08-01T09:22:18.679Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
+		'locale': 'en',
+		'userAvatar': 'https://gravatar.com/avatar/40f40b49f20fbc010773ed5a125fdcd4?d=blank',
+		'userName': 'lanievelyn',
+	},
+	{
+		'duration': 29912,
+		'countMessages': 8,
+		'finalMessage': 'Did that solve the problem?',
+		'_id': 'L1GZFPdqPW3dnSlYfMFY',
+		'_createdDate': {
+			'$date': '2020-08-01T09:21:02.377Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
+		'locale': 'en',
+		'userAvatar': 'https://graph.facebook.com/3482646535079092/picture',
+		'userName': 'almavetra0',
+	},
+	{
+		'duration': 44738,
+		'countMessages': 11,
+		'finalMessage': 'Ok, let&#x27;s get started! Click below to start transferring your domain to Wix.',
+		'_id': 'j9QESSePA3QmPUkDhaiD',
+		'_createdDate': {
+			'$date': '2020-08-01T09:20:59.745Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
+		'locale': 'en',
+		'userAvatar': 'https://lh3.googleusercontent.com/a-/AOh14GhFiEOxYET57d2RYuTwuefioU0CgavaJusdF0rr%3Ds96-c',
+		'userName': 'aswinirpmindia',
+	},
+	{
+		'duration': 205576,
+		'countMessages': 24,
+		'finalMessage': 'Before you go, was this chat helpful?',
+		'_id': 'PRV5aZekWh3ELOI2yN1d',
+		'_createdDate': {
+			'$date': '2020-08-01T09:20:45.151Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:30:31.408Z',
+		},
+		'locale': 'en',
+		'withTicket': 'https://support.wix.com/en/ticket/97014674-2ea5-4bef-842e-b6273c660a02',
+		'userAvatar': 'https://gravatar.com/avatar/738e68ca0ddfd9edfe93a6d3607870d8?d=blank',
+		'userName': 'lee1177',
+	},
+	{
+		'duration': 49049,
+		'countMessages': 10,
+		'finalMessage': 'Were you able to purchase your domain?',
+		'_id': 'oNRzXV3CmHNVUTxgxHrs',
+		'_createdDate': {
+			'$date': '2020-08-01T09:18:27.499Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:25:33.196Z',
+		},
+		'locale': 'en',
+		'userAvatar': 'https://graph.facebook.com/10159105126936264/picture',
+		'userName': 'barrydcooper',
+	},
+	{
+		'duration': 84403,
+		'countMessages': 26,
+		'finalMessage': 'Thanks for getting in touch! Click below to head back to your sites while you wait for a response from our Customer Care team.',
+		'_id': 'TUBGy4lG9XfRWjUFkZeh',
+		'_createdDate': {
+			'$date': '2020-08-01T09:18:17.235Z',
+		},
+		'isWixEmployee': false,
+		'_updatedDate': {
+			'$date': '2020-08-01T09:25:33.196Z',
+		},
+		'locale': 'en',
+		'withTicket': 'https://support.wix.com/en/ticket/5b918e0b-dbea-40e4-b350-b36b65cd3a28',
+		'userAvatar': 'https://gravatar.com/avatar/b47eb704a488b48f4856e91979a9cae4?d=blank',
+		'userName': 'sebastianhess',
 	},
 ];
 const FALLBACK_MSGS = [
@@ -226,10 +364,10 @@ window.input = {
 };
 
 
-const webcomponent = document.querySelector('serhiiko-svelte');
+const webcomponent = document.querySelector('chatbot-conv');
 document.addEventListener(':GET_MESSAGE', sendMessage);
 webcomponent.addEventListener(':GET_CONVERSATIONS', ({ detail }) => {
-	if (detail) sendConversations(detail.responseType);
+	if (detail) setTimeout(() => sendConversations(detail.responseType), 3000);
 });
 
 sendMessage();

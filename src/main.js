@@ -6,11 +6,10 @@ class Test extends HTMLElement {
 		new App({
 			target: this,
 			props: {
-				name: 'serhiiko new',
 				dispatchEvent,
 			},
 		});
 	}
 }
 
-window.customElements.define('serhiiko-svelte', Test);
+window.customElements.define('chatbot-conv', Test);

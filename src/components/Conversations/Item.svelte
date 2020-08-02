@@ -20,8 +20,9 @@
 
 <div 
   class="item" 
+  class:active 
   class:not-readed={!conv.isReaded} 
-  class:active on:click={handleClick}
+  on:click={handleClick}
 >
   <Avatar userAvatar={conv.userAvatar} />
   <Info {conv} />
