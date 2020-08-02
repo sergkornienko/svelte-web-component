@@ -51,7 +51,7 @@
     border-color: var(--input-border-color);
     color: var(--user-msg-color);
     padding: 8px 12px;
-		width: 300px;
+		min-width: 190px;
 	}
 
 	:global(.input-element:focus) {
