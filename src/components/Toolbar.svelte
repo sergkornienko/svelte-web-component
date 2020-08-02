@@ -11,7 +11,7 @@
   let sort;
   let language;
 
-  const handleSearchInput = debounce((e) => dispatchSearch(e.target.value), 500);
+  const handleSearchInput = debounce((e) => dispatchSearch(e.target.value.trim()), 500);
   const handleFilterClick = (e) => dispatchLoadConversations(filter, sort, language);
 </script>
   

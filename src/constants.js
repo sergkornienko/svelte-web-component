@@ -3,6 +3,7 @@ export const INPUT = {
 	MESSAGE: ':SHOW_MESSAGE',
 	ADD_CONVERSATIONS: ':ADD_CONVERSATIONS', // add conversations to the bottom of showed now
 	LOAD_CONVERSATIONS: ':LOAD_CONVERSATIONS', // load conversations of specific filtering & sorting in first time
+	LOAD_SEARCH_RESULT: ':LOAD_SEARCH_RESULT',
 };
 export const OUTPUT = {
 	MESSAGE: ':GET_MESSAGE',

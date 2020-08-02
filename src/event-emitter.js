@@ -31,10 +31,13 @@ export const dispatchLoadMoreConversations = () => {
 };
 
 export const dispatchSearch = (value) => {
+	if (!value || value === '') {
+		return;
+	}
 	const { dispatchEvent } = getContext('event-emitter');
 	dispatchEvent(OUTPUT.SEARCH, {
 		value,
-		responseType: INPUT.LOAD_CONVERSATIONS,
+		responseType: INPUT.LOAD_SEARCH_RESULT,
 	});
 };
 

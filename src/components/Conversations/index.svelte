@@ -1,5 +1,5 @@
 <script>
-	import { conversations, isLoading } from '../../store.js';
+	import { conversations, isLoading, isSearchResult } from '../../store.js';
   import { isActiveConv, isScrolledToBootom } from '../../util.js';
   import Item from './Item.svelte';
   import Loader from '../Loader.svelte';
@@ -16,7 +16,7 @@
     dispatchOpenMessage(detail._id);
   };
   const handleScroll = () => {
-    if(!$isLoading && isScrolledToBootom(convList)) {
+    if(!$isLoading && isScrolledToBootom(convList) && !$isSearchResult) {
       loadMore = true;
 		  dispatchLoadMoreConversations();
     }

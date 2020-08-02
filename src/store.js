@@ -13,7 +13,10 @@ const initialMessages = {
 	list: [],
 };
 
-export const messages = readable(initialMessages, set => window.addEventListener('message', handleOnmessage(set, messagesReducer, messages)));
-export const conversations = readable([], set => window.addEventListener('message', handleOnmessage(set, conversationsReducer, conversations)));
+export const messages = readable(initialMessages,
+	set => window.addEventListener('message', handleOnmessage(set, messagesReducer, messages)));
+export const conversations = readable([],
+	set => window.addEventListener('message', handleOnmessage(set, conversationsReducer, conversations)));
 
 export const isLoading = writable(false);
+export const isSearchResult = writable(false);
