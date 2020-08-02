@@ -4,25 +4,61 @@ import { isLoading } from './store.js';
 
 export const initEventEmmiter = (dispatchEvent) => {
 	setContext('event-emitter', {
-		dispatchEvent: (type, detail) => dispatchEvent(new CustomEvent(type, { detail })),
+		dispatchEvent: (type, detail) => {
+			console.log(type, { detail });
+			dispatchEvent(new CustomEvent(type, { detail }));
+		},
 	});
 };
 
-export const dispatchLoadConversations = () => {
+export const dispatchLoadConversations = (filter, sort, language) => {
+	const { dispatchEvent } = getContext('event-emitter');
+	isLoading.set(true);
+	dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
+		sort,
+		filter,
+		language,
+		responseType: INPUT.LOAD_CONVERSATIONS,
+	});
+};
+
+export const dispatchLoadMoreConversations = () => {
 	const { dispatchEvent } = getContext('event-emitter');
 	isLoading.set(true);
 	dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
 		responseType: INPUT.ADD_CONVERSATIONS,
-		// TODO: add data of filters state
 	});
 };
 
-export const dispatchToggleFavorite = (_id) => {
+export const dispatchSearch = (value) => {
 	const { dispatchEvent } = getContext('event-emitter');
-	dispatchEvent(OUTPUT.TOGGLE_FAVORITE, { _id });
+	dispatchEvent(OUTPUT.SEARCH, {
+		value,
+		responseType: INPUT.LOAD_CONVERSATIONS,
+	});
+};
+
+export const dispatchRefresh = () => {
+	const { dispatchEvent } = getContext('event-emitter');
+	dispatchEvent(OUTPUT.REFRESH, {
+		responseType: INPUT.LOAD_CONVERSATIONS,
+	});
+};
+
+export const dispatchToggleFavorite = (_id, value) => {
+	const { dispatchEvent } = getContext('event-emitter');
+	dispatchEvent(OUTPUT.TOGGLE_FAVORITE, { _id, value });
 };
 
 export const dispatchToggleReaded = (_id) => {
 	const { dispatchEvent } = getContext('event-emitter');
 	dispatchEvent(OUTPUT.TOGGLE_READED, { _id });
+};
+
+export const dispatchOpenMessage = (_id) => {
+	const { dispatchEvent } = getContext('event-emitter');
+	dispatchEvent(OUTPUT.MESSAGE, {
+		_id,
+		responseType: INPUT.MESSAGE,
+	});
 };

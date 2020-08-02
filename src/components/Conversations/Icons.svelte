@@ -13,7 +13,7 @@
   const handleDeepLinkClick = () => navigator.clipboard.writeText(`${window.location.href}?conversationId=${id}`);
   const handleFavoriteClick = () => {
     favorite = !favorite;
-    dispatchToggleFavorite(id);
+    dispatchToggleFavorite(id, favorite);
   };
 </script>
 

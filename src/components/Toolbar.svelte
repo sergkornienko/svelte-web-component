@@ -5,14 +5,14 @@
   import debounce from 'lodash/debounce';
   import { FILTERS, SORTS, LANGUAGES } from '../constants.js';
 	import { isLoading } from '../store.js';
+  import { dispatchLoadConversations, dispatchSearch, dispatchRefresh } from '../event-emitter.js';
   
   let filter;
   let sort;
   let language;
 
-  const handleSearchInput = debounce((e) => console.log(e.target.value), 500);
-  const handleRefreshClick = (e) => console.log(e);
-  const handleFilterClick = (e) => console.log(e);
+  const handleSearchInput = debounce((e) => dispatchSearch(e.target.value), 500);
+  const handleFilterClick = (e) => dispatchLoadConversations(filter, sort, language);
 </script>
   
 <div class="toolbar">
@@ -50,7 +50,7 @@
     <Button
       primary
       label="Refresh"
-      on:click={handleRefreshClick}
+      on:click={dispatchRefresh}
       disabled={$isLoading}
     />
   </div>

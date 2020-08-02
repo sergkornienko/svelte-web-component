@@ -3,7 +3,7 @@
   import { isActiveConv, isScrolledToBootom } from '../../util.js';
   import Item from './Item.svelte';
   import Loader from '../Loader.svelte';
-  import { dispatchLoadConversations } from '../../event-emitter.js';
+  import { dispatchLoadMoreConversations, dispatchOpenMessage } from '../../event-emitter.js';
 
   let active;
   let convList;
@@ -11,11 +11,14 @@
 
   conversations.subscribe(() => loadMore = false);
   
-  const handleClick = ({ detail }) => active = detail._id;
+  const handleClick = ({ detail }) => {
+    active = detail._id;
+    dispatchOpenMessage(detail._id);
+  };
   const handleScroll = () => {
     if(!$isLoading && isScrolledToBootom(convList)) {
       loadMore = true;
-		  dispatchLoadConversations();
+		  dispatchLoadMoreConversations();
     }
   };
 </script>
@@ -41,8 +44,8 @@
 
 <style>
   .conv-list {
-      max-height: 100%;
-		  overflow-y: scroll;
+    max-height: 100%;
+    overflow-y: scroll;
   }
   :global(.conv-list .loader) {
     margin-top: 16px;

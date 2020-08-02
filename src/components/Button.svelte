@@ -7,6 +7,7 @@
 <button
   class="btn"
   class:primary
+  on:click
   {disabled}
 >
   {label}
