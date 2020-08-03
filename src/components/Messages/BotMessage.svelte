@@ -17,6 +17,7 @@
     color: var(--text-color);
     padding: 0 14px;
     cursor: pointer;
+    font-size: 16px;
   }
   p {
     padding: 0;

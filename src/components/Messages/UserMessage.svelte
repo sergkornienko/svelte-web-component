@@ -17,6 +17,7 @@
     background-color: #cbd3dc;
     color: var(--user-msg-color);
     padding: 0 14px;
+    font-size: 16px;
   }
   p {
     padding: 0;

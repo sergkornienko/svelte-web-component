@@ -17,10 +17,9 @@
 <style>
   .info {
     width: 70%;
-  }
-  .info {
     display: flex;
     flex-direction: column;
+    color: var(--event-color);
   }
   .main-info, .additiona-info {
     display: flex;

@@ -37,9 +37,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  @media screen and (min-width: 1720px) {
+    .dropdown {
+      margin-right: 30px;
+    }
+  }
   .arrow {
     position: absolute;
-    top: 9px;
+    top: 12px;
     right: 9px;
   }
   :global(.arrow-down-icon) {

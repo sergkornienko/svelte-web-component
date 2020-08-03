@@ -26,16 +26,17 @@
   }
   .action-content {
     text-align: center;
+    padding-bottom: 12px;
   }
   p {
     font-family: Helvetica Neue,sans-serif;
-    font-weight: 500;
+    font-weight: bold!important;
     text-align: center;
     color:  var(--event-color);
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
-    margin-bottom: 0;
+    margin-bottom: 0px;
   }
   .line {
     min-width:30px; 
@@ -50,6 +51,7 @@
     text-transform: none;
     font-size: 12px;
     color: var(--link-color);
+    margin-top: 0;
   }
   .link {
     width: 10px;

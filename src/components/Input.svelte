@@ -43,7 +43,7 @@
   }
   .search-icon {
     position: absolute;
-    top: 8px;
+    top: 6px;
     left: 9px;
   }
 </style>

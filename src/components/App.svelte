@@ -1,9 +1,9 @@
 <script>
-  import { messages } from "../store.js";
-  import Toolbar from "./Toolbar.svelte";
-  import ConversationsList from "./Conversations/index.svelte";
-  import MessagesList from "./Messages/index.svelte";
-  import { initEventEmmiter } from "../event-emitter.js";
+  import { messages } from '../store.js';
+  import Toolbar from './Toolbar.svelte';
+  import ConversationsList from './Conversations/index.svelte';
+  import MessagesList from './Messages/index.svelte';
+  import { initEventEmmiter } from '../event-emitter.js';
 
   export let dispatchEvent;
   initEventEmmiter(dispatchEvent);
@@ -17,7 +17,7 @@
     --event-color: #7a92a5;
     --link-color: #3d9be9;
     --hover-color: #eaf7ff;
-    --mobile-width: "650px";
+    --mobile-width: '650px';
     --background-color-message-list: #f0f4f7;
     --background-color-site: #dfe5eb;
     --input-border-color: #c1e4fe;
@@ -46,15 +46,19 @@
     color: var(--user-msg-color);
     padding: 8px 12px;
     min-width: 190px;
+    margin-bottom: 8px;
   }
 
   :global(.input-element:focus) {
     box-shadow: 0 0 0 0.5pt var(--link-color);
     outline: none;
   }
+  :global(p) {
+    margin: 12px 0;
+  }
   main {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
