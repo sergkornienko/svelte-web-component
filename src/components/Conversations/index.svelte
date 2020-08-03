@@ -1,9 +1,12 @@
 <script>
+  import { getContext } from 'svelte';
 	import { conversations, isLoading, isSearchResult } from '../../store.js';
   import { isActiveConv, isScrolledToBootom } from '../../util.js';
   import Item from './Item.svelte';
   import Loader from '../Loader.svelte';
-  import { dispatchLoadMoreConversations, dispatchOpenMessage } from '../../event-emitter.js';
+  import { INPUT, OUTPUT} from '../../constants.js';
+
+  const { dispatchEvent } = getContext('event-emitter');
 
   let active;
   let convList;
@@ -13,12 +16,18 @@
   
   const handleClick = ({ detail }) => {
     active = detail._id;
-    dispatchOpenMessage(detail._id);
+    dispatchEvent(OUTPUT.MESSAGE, {
+      _id: detail._id,
+      responseType: INPUT.MESSAGE,
+    });
   };
   const handleScroll = () => {
     if(!$isLoading && isScrolledToBootom(convList) && !$isSearchResult) {
       loadMore = true;
-		  dispatchLoadMoreConversations();
+		  isLoading.set(true);
+      dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
+        responseType: INPUT.ADD_CONVERSATIONS,
+      });
     }
   };
 </script>

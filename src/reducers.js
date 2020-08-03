@@ -6,6 +6,7 @@ export const isChatConvEvent = ({ data }) => data && data.messageType === CONNEC
 const conversationsReducer = (e, previousState) => {
 	if (!isChatConvEvent(e)) return null;
 	isLoading.set(false);
+	console.log('conversationsReducer: ', e.data, previousState);
 	switch (e.data.type) {
 		case INPUT.ADD_CONVERSATIONS:
 			isSearchResult.set(false);

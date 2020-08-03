@@ -1,9 +1,11 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
-  import { dispatchToggleReaded } from '../../event-emitter.js';
+  import { createEventDispatcher, getContext } from 'svelte';
   import Avatar from './Avatar.svelte';
   import Info from './Info.svelte';
   import Icons from './Icons.svelte';
+  import { OUTPUT } from '../../constants.js';
+
+	const { dispatchEvent } = getContext('event-emitter');
 
 	const dispatch = createEventDispatcher();
   export let conv = {};
@@ -11,7 +13,9 @@
 
   const handleClick = () => {
     if (!conv.isReaded) {
-      dispatchToggleReaded(conv._id);
+	    dispatchEvent(OUTPUT.TOGGLE_READED, {
+        _id: conv._id
+      });
     }
     conv.isReaded = true;
     dispatch('click', { _id: conv._id });

@@ -1,18 +1,44 @@
 <script>
+  import { getContext } from 'svelte';
+  import { INPUT, OUTPUT} from '../constants.js';
   import Input from './Input.svelte';
   import Button from './Button.svelte';
   import Dropdown from './Dropdown.svelte';
   import debounce from 'lodash/debounce';
   import { FILTERS, SORTS, LANGUAGES } from '../constants.js';
-	import { isLoading } from '../store.js';
-  import { dispatchLoadConversations, dispatchSearch, dispatchRefresh } from '../event-emitter.js';
+  import { isLoading } from '../store.js';
+  
+	const { dispatchEvent } = getContext('event-emitter');
   
   let filter;
   let sort;
   let language;
 
-  const handleSearchInput = debounce((e) => dispatchSearch(e.target.value.trim()), 500);
-  const handleFilterClick = (e) => dispatchLoadConversations(filter, sort, language);
+  const handleSearchInput = debounce((e) => {
+    const value = e.target.value.trim();
+    if (!value || value === '') {
+      return;
+    }
+    dispatchEvent(OUTPUT.SEARCH, {
+      value,
+      responseType: INPUT.LOAD_SEARCH_RESULT,
+    });
+    
+  }, 500);
+  const handleFilterClick = (e) => {
+    isLoading.set(true);
+    dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
+      sort,
+      filter,
+      language,
+      responseType: INPUT.LOAD_CONVERSATIONS,
+    });
+  };
+  const dispatchRefresh = () => {
+    dispatchEvent(OUTPUT.REFRESH, {
+      responseType: INPUT.LOAD_CONVERSATIONS,
+    });
+  }
 </script>
   
 <div class="toolbar">
@@ -25,16 +51,19 @@
   />
   <div class="filters">
     <Dropdown
+      stretch
       name="filterBy"
       options={FILTERS}
       bind:value={filter}
     />
     <Dropdown
+      stretch
       name="sortBy"
       options={SORTS}
       bind:value={sort}
     />
     <Dropdown
+      stretch
       name="language"
       options={LANGUAGES}
       bind:value={language}
@@ -65,6 +94,11 @@
   .filters {
     display: flex;
     justify-content: space-between;
+  }
+  @media screen and (min-width: 1720px) {
+    .filters {
+      justify-content: flex-start;
+    }
   }
   .btns {
     display: flex;
