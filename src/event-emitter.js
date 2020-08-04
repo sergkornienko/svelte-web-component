@@ -3,10 +3,8 @@ import { setContext } from 'svelte';
 // import { isLoading } from './store.js';
 
 export const initEventEmmiter = (dispatchEvent) => {
-	console.log('init ee');
 	setContext('event-emitter', {
 		dispatchEvent: (type, detail) => {
-			console.log(type, { detail });
 			dispatchEvent(new CustomEvent(type, { detail }));
 		},
 	});
