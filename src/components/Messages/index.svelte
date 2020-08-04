@@ -16,7 +16,7 @@
           <BotAvatar />
         {/if}
         {#if isUser(msg.type)}
-          <UserAvatar src={messages.avatar} />
+          <UserAvatar src={$messages.avatar} />
         {/if}
         <Item {msg} />
       </div>
