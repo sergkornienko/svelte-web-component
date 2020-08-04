@@ -12,13 +12,7 @@
   $: starUrl = favorite ? FILL_STAR : EMPTY_STAR;
 
   const handleDeepLinkClick = () => navigator.clipboard.writeText(`${window.location.href}?conversationId=${id}`);
-  const handleFavoriteClick = () => {
-    favorite = !favorite;
-	  dispatchEvent(OUTPUT.TOGGLE_FAVORITE, {
-      _id: id,
-      value: favorite,
-    });
-  };
+  
 </script>
 
 <div class="additional-icons">
@@ -30,7 +24,7 @@
   {/if}
 </div>
 <div class="favorite">
-  <img src={starUrl} alt="Star" height="28px" on:click|stopPropagation={handleFavoriteClick}>
+  <img src={starUrl} alt="Star" height="28px" on:click|self|stopPropagation>
 </div>
 
 <style>

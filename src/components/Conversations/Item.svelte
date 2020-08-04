@@ -20,6 +20,13 @@
     conv.isReaded = true;
     dispatch('click', { _id: conv._id });
   };
+  const handleFavoriteClick = () => {
+    conv.favorite = !conv.favorite;
+	  dispatchEvent(OUTPUT.TOGGLE_FAVORITE, {
+      _id: conv._id,
+      value: conv.favorite,
+    });
+  };
 </script>
 
 <div 
@@ -34,6 +41,7 @@
     id={conv._id}
     ticket={conv.withTicket}
     favorite={conv.favorite}
+    on:click={handleFavoriteClick}
   />
 </div>
 
