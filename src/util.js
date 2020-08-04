@@ -8,8 +8,8 @@ const msToTime = (duration) => {
 	let minutes = Math.floor((duration / (1000 * 60)) % 60);
 	let	hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
-	hours = (hours < 10) ? 0 + hours : hours;
-	minutes = (minutes < 10) ? 0 + minutes : minutes;
+	hours = (hours < 10) ? '0' + hours : hours;
+	minutes = (minutes < 10) ? '0' + minutes : minutes;
 
 	return hours + ':' + minutes;
 };
@@ -24,9 +24,9 @@ const dateToStrShort = (createdDate) => {
 };
 
 export const dateToString = (date) => {
-	const createdDate = new Date(date.$date);
-	const hours = createdDate.getHours() > 9 ? createdDate.getHours() : 0 + createdDate.getHours();
-	const minutes = createdDate.getMinutes() > 9 ? createdDate.getMinutes() : 0 + createdDate.getMinutes();
+	const createdDate = new Date(date);
+	const hours = createdDate.getHours() > 9 ? createdDate.getHours() : '0' + createdDate.getHours();
+	const minutes = createdDate.getMinutes() > 9 ? createdDate.getMinutes() : '0' + createdDate.getMinutes();
 
 	return `${hours}:${minutes} ${dateToStrShort(createdDate)}`;
 };
