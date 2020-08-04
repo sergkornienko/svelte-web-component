@@ -34,9 +34,8 @@
   .final-message {
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    white-space: pre;
+    width: 60%;
   }
   .messages-info, .date {
     min-width: 130px;
