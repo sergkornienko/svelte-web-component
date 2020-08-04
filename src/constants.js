@@ -42,17 +42,17 @@ export const LANGUAGES = [
 ];
 export const FILTERS = [
 	{ label: 'All', value: 'all' },
-	{ label: 'With star', value: 'favorite' },
-	{ label: 'Unread', value: 'unread' },
-	{ label: 'Desktop', value: 'desktop' },
-	{ label: 'Mobile', value: 'mobile' },
-	{ label: 'Tablet', value: 'tablet' },
+	{ label: 'With star', value: 'byFavorite' },
+	{ label: 'Unread', value: 'byUnread' },
+	{ label: 'Desktop', value: 'byDesktop' },
+	{ label: 'Mobile', value: 'byMobile' },
+	{ label: 'Tablet', value: 'byTablet' },
 ];
 export const SORTS = [
-	{ label: 'Newest to oldest', value: 'DateAscending' },
-	{ label: 'Oldest to newest', value: 'DateDescending' },
-	{ label: 'Longest to shortest', value: 'DurationAscending' },
-	{ label: 'Shortest to longest', value: 'DurationDescending' },
-	{ label: 'Most engaged', value: 'EngageAscending' },
-	{ label: 'Least engaged', value: 'EngageDescending' },
+	{ label: 'Newest to oldest', value: 'byDateDescending' },
+	{ label: 'Oldest to newest', value: 'byDateAscending' },
+	{ label: 'Longest to shortest', value: 'byDurationDescending' },
+	{ label: 'Shortest to longest', value: 'byDurationAscending' },
+	{ label: 'Most engaged', value: 'byEngageDescending' },
+	{ label: 'Least engaged', value: 'byEngageAscending' },
 ];
