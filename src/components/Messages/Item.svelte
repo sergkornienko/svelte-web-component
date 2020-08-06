@@ -1,4 +1,6 @@
 <script>
+ import { slide } from 'svelte/transition';
+	import { quadOut } from 'svelte/easing';
   import BotMessage from './BotMessage.svelte';
   import UserMessage from './UserMessage.svelte';
   import Event from './Event.svelte';
@@ -8,7 +10,10 @@
   export let botId = '';
 </script>
 
-<div class="item">
+<div 
+  class="item"
+  transition:slide="{{delay: 250, duration: 1500, easing: quadOut }}"
+>
   {#if isBot(msg.type)}
     <BotMessage {...msg} {botId} />
   {:else if isUser(msg.type)}

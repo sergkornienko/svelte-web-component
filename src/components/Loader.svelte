@@ -1,4 +1,5 @@
 <script>
+  import { blur } from 'svelte/transition';
   export let centred;
   export let width;
 </script>
@@ -8,6 +9,7 @@
   alt="Loader"
   class="loader"
   class:centred
+  transition:blur="{{ duration: 1000 }}"
   {width}
 >
 

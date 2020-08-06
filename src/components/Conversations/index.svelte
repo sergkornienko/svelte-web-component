@@ -5,7 +5,6 @@
   import Item from './Item.svelte';
   import Loader from '../Loader.svelte';
   import { INPUT, OUTPUT} from '../../constants.js';
-
   const { dispatchEvent } = getContext('event-emitter');
 
   let active;
@@ -32,16 +31,16 @@
   };
 </script>
 
-<!-- // TODO: add animation -->
 <div class="conv-list" 
   bind:this={convList}
   on:scroll={handleScroll}
 >
   {#if !$isLoading || loadMore}
-    {#each $conversations as conv, i}
+    {#each $conversations as conv, index}
       <Item 
-        {conv} 
-        active={isActiveConv(active, conv, i)} 
+        {conv}
+        {index}
+        active={isActiveConv(active, conv, index)} 
         on:click={handleClick} 
       />
     {/each}
