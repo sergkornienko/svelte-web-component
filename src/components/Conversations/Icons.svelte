@@ -1,6 +1,7 @@
 <script>
   import { getContext } from 'svelte';
   import { EMPTY_STAR, FILL_STAR, OUTPUT } from '../../constants.js';
+  import { transformLink } from '../../util.js';
   import link from '../../assets/link.svg';
   import ticketSvg from '../../assets/ticket.svg';
   
@@ -12,7 +13,6 @@
   $: starUrl = favorite ? FILL_STAR : EMPTY_STAR;
 
   const handleDeepLinkClick = () => navigator.clipboard.writeText(`${window.location.href}?conversationId=${id}`);
-  
 </script>
 
 <div class="additional-icons">
@@ -20,7 +20,7 @@
     {@html link}
   </div>
   {#if ticket}
-    <a class="icon" href={ticket} target="_blank">{@html ticketSvg}</a>
+    <a class="icon" href={transformLink(ticket)} target="_blank">{@html ticketSvg}</a>
   {/if}
 </div>
 <div class="favorite">

@@ -35,3 +35,10 @@ export const formatConvDetails = (conv) =>
 	`${conv.countMessages} messages (${conv.duration ? msToTime(conv.duration) : durationOld(conv._createdDate, conv._updatedDate)} min)`;
 
 export const isScrolledToBootom = (item) => item.scrollTop === (item.scrollHeight - item.offsetHeight);
+export const transformLink = (link) => {
+	if (!link.includes('/ticket/')) {
+		return link;
+	}
+	const [,id] = link.split('ticket/');
+	return 'https://wix.wixanswers.com/app/helpdesk/ticket/' + id;
+};

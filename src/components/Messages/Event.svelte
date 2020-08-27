@@ -1,4 +1,5 @@
 <script>
+  import { transformLink } from '../../util.js';
   export let message = '';
   export let linkTitle = '';
   export let linkHref = '';
@@ -9,7 +10,7 @@
   <div class="action-content">
     <p>{message}</p>
     {#if linkHref}
-      <a href={linkHref} target="_blank">
+      <a href={transformLink(linkHref)} target="_blank">
         {linkTitle}
         <img class="link" src="https://static.wixstatic.com/shapes/260237_e485e56c29f348cca734a0f39cd915ca.svg" alt="Link">
       </a>
