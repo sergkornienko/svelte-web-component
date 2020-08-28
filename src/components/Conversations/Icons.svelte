@@ -9,10 +9,11 @@
   export let id;
   export let favorite = false;
   export let ticket = false;
+  const baseUrl = window.location.origin + window.location.pathname;
 
   $: starUrl = favorite ? FILL_STAR : EMPTY_STAR;
 
-  const handleDeepLinkClick = () => navigator.clipboard.writeText(`${window.location.href}?conversationId=${id}`);
+  const handleDeepLinkClick = () => navigator.clipboard.writeText(`${baseUrl}?conversationId=${id}`);
 </script>
 
 <div class="additional-icons">
