@@ -8,37 +8,37 @@
   import { FILTERS, SORTS, LANGUAGES } from '../constants.js';
   import { isLoading } from '../store.js';
   
-	const { dispatchEvent } = getContext('event-emitter');
+const { dispatchEvent } = getContext('event-emitter');
   
   let filter;
   let sort;
   let language;
 
   const handleSearchInput = debounce((e) => {
-    const value = e.target.value.trim();
-    if (!value || value === '') {
-      return;
-    }
-    dispatchEvent(OUTPUT.SEARCH, {
-      value,
-      responseType: INPUT.LOAD_SEARCH_RESULT,
-    });
-    
+  	const value = e.target.value.trim();
+  	if (!value || value === '') {
+  		return;
+  	}
+  	dispatchEvent(OUTPUT.SEARCH, {
+  		value,
+  		responseType: INPUT.LOAD_SEARCH_RESULT,
+  	});
+  
   }, 500);
-  const handleFilterClick = (e) => {
-    isLoading.set(true);
-    dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
-      sort,
-      filter,
-      language,
-      responseType: INPUT.LOAD_CONVERSATIONS,
-    });
+  const handleFilterClick = () => {
+  	isLoading.set(true);
+  	dispatchEvent(OUTPUT.GET_CONVERSATIONS, {
+  		sort,
+  		filter,
+  		language,
+  		responseType: INPUT.LOAD_CONVERSATIONS,
+  	});
   };
   const dispatchRefresh = () => {
-    dispatchEvent(OUTPUT.REFRESH, {
-      responseType: INPUT.LOAD_CONVERSATIONS,
-    });
-  }
+  	dispatchEvent(OUTPUT.REFRESH, {
+  		responseType: INPUT.LOAD_CONVERSATIONS,
+  	});
+  };
 </script>
   
 <div class="toolbar">

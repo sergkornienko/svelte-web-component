@@ -1,13 +1,13 @@
 <script>
  import { slide } from 'svelte/transition';
-	import { quadOut } from 'svelte/easing';
-  import BotMessage from './BotMessage.svelte';
-  import UserMessage from './UserMessage.svelte';
-  import Event from './Event.svelte';
-  import { isBot, isUser } from '../../util.js';
+import { quadOut } from 'svelte/easing';
+ import BotMessage from './BotMessage.svelte';
+ import UserMessage from './UserMessage.svelte';
+ import Event from './Event.svelte';
+ import { isBot, isUser } from '../../util.js';
 
-  export let msg = {};
-  export let botId = '';
+ export let msg = {};
+ export let botId = '';
 </script>
 
 <div 

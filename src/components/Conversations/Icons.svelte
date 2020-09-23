@@ -1,11 +1,11 @@
 <script>
-  import { getContext } from 'svelte';
-  import { EMPTY_STAR, FILL_STAR, OUTPUT } from '../../constants.js';
+  // import { getContext } from 'svelte';
+  import { EMPTY_STAR, FILL_STAR } from '../../constants.js';
   import { transformLink } from '../../util.js';
   import link from '../../assets/link.svg';
   import ticketSvg from '../../assets/ticket.svg';
   
-  const { dispatchEvent } = getContext('event-emitter');
+  // const { dispatchEvent } = getContext('event-emitter');
   export let id;
   export let favorite = false;
   export let ticket = false;

@@ -6,28 +6,28 @@
   import Icons from './Icons.svelte';
   import { OUTPUT } from '../../constants.js';
 
-	const { dispatchEvent } = getContext('event-emitter');
+const { dispatchEvent } = getContext('event-emitter');
 
-	const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
   export let conv = {};
   export let active = false;
   export let index;
 
   const handleClick = () => {
-    if (!conv.isReaded) {
+  	if (!conv.isReaded) {
 	    dispatchEvent(OUTPUT.TOGGLE_READED, {
-        _id: conv._id
-      });
-    }
-    conv.isReaded = true;
-    dispatch('click', { _id: conv._id });
+  			_id: conv._id,
+  		});
+  	}
+  	conv.isReaded = true;
+  	dispatch('click', { _id: conv._id });
   };
   const handleFavoriteClick = () => {
-    conv.favorite = !conv.favorite;
+  	conv.favorite = !conv.favorite;
 	  dispatchEvent(OUTPUT.TOGGLE_FAVORITE, {
-      _id: conv._id,
-      value: conv.favorite,
-    });
+  		_id: conv._id,
+  		value: conv.favorite,
+  	});
   };
 </script>
 
