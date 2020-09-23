@@ -66,6 +66,9 @@
     grid-template: auto 1fr / 3fr 4fr;
     background-color: var(--background-color-site);
   }
+  :global(footer) {
+   display: none;
+  }
 </style>
 
 <svelte:head>

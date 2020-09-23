@@ -371,4 +371,6 @@ webcomponent.addEventListener(':GET_CONVERSATIONS', ({ detail }) => {
 });
 
 sendMessage();
-sendConversations(':ADD_CONVERSATIONS');
+setTimeout(() => {
+	sendConversations(':ADD_CONVERSATIONS');
+}, 1000);
