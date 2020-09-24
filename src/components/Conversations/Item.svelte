@@ -1,6 +1,5 @@
 <script>
   import { createEventDispatcher, getContext } from 'svelte';
-  import { fade } from 'svelte/transition';
   import Avatar from './Avatar.svelte';
   import Info from './Info.svelte';
   import Icons from './Icons.svelte';
@@ -11,7 +10,6 @@ const { dispatchEvent } = getContext('event-emitter');
 const dispatch = createEventDispatcher();
   export let conv = {};
   export let active = false;
-  export let index;
 
   const handleClick = () => {
   	if (!conv.isReaded) {
@@ -36,7 +34,6 @@ const dispatch = createEventDispatcher();
   class:active 
   class:not-readed={!conv.isReaded} 
   on:click={handleClick}
-  transition:fade="{{delay: 50 *( index % 50), duration: 800}}"
 >
   <Avatar userAvatar={conv.userAvatar} />
   <Info {conv} />
