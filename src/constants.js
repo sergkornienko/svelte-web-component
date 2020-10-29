@@ -47,6 +47,7 @@ export const FILTERS = [
 	{ label: 'Desktop', value: 'byDesktop' },
 	{ label: 'Mobile', value: 'byMobile' },
 	{ label: 'Tablet', value: 'byTablet' },
+	{ label: 'Live Chat', value: 'byLiveChat' },
 ];
 export const SORTS = [
 	{ label: 'Newest to oldest', value: 'byDateDescending' },
