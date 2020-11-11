@@ -21,6 +21,11 @@ import { conversations, isLoading, isSearchResult } from '../../store.js';
   	});
   };
   const handleScroll = () => {
+    console.log({
+      isLoading: $isLoading,
+      isScrolledToBootom: isScrolledToBootom(convList),
+      isSearchResult: $isSearchResult,
+    });
   	if(!$isLoading && isScrolledToBootom(convList) && !$isSearchResult) {
   		loadMore = true;
 		  isLoading.set(true);

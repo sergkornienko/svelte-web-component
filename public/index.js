@@ -190,12 +190,12 @@ const FALLBACK_MSGS = [
 		'inputType': 'textInput',
 	},
 	{
-		'message': '<p>Please provide a bit more information so I can connect you to the most relevant Customer Care Expert. </p>',
+		'message': '<p>Please provide a bit more information so I can connect you to the most relevant Customer Care Expert. </p><img src="https://d2x3xhvgiqkx42.cloudfront.net/12345678-1234-1234-1234-1234567890ab/fcb9e492-ba79-4e74-b711-d41b6a1a5792/2020/11/10/e63adbb6-f0fe-4a4b-8c5d-ad617843629c/15bcd9e0-8693-48c5-9fae-bdc9ef54e950.png">',
 		'type': 'bot',
 		'nodeID': 'KXk6v6QtXoKd2KLyTi9H',
 	},
 	{
-		'message': 'Accepting Payments',
+		'message': 'Accepting Payments<img src="https://d2x3xhvgiqkx42.cloudfront.net/12345678-1234-1234-1234-1234567890ab/fcb9e492-ba79-4e74-b711-d41b6a1a5792/2020/11/10/e63adbb6-f0fe-4a4b-8c5d-ad617843629c/15bcd9e0-8693-48c5-9fae-bdc9ef54e950.png">',
 		'type': 'user',
 		'inputType': 'category',
 	},
